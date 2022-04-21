@@ -1,0 +1,83 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+Login <|-- ConnectionPool
+Login <|-- ApplicationStart
+Login <|-- DatabaseException
+Login <|-- OrderMapper
+Login <|-- UserMapper
+
+Logout <|-- ConnectionPool
+
+CreateAccount <|-- ConnectionPool
+CreateAccount <|-- ApplicationStart
+CreateAccount <|-- DatabaseException
+CreateAccount <|-- OrderMapper
+CreateAccount <|-- UserMapper
+
+Pay <|-- ConnectionPool
+Pay <|-- ApplicationStart
+Pay <|-- DatabaseException
+Pay <|-- OrderMapper
+Pay <|-- UserMapper
+
+AddOrder <|-- ConnectionPool
+AddOrder <|-- ApplicationStart
+AddOrder <|-- DatabaseException
+AddOrder <|-- OrderMapper
+
+OrderMapper <|-- ConnectionPool
+OrderMapper <|-- Order
+OrderMapper <|-- CompleteOrder
+OrderMapper <|-- CakeBot
+OrderMapper <|-- CakeTop
+OrderMapper <|-- User
+
+UserMapper <|-- ConnectionPool
+UserMapper <|-- User
+IUserMapper <|-- UserMapper
+
+class DatabaseException{}
+
+class OrderMapperTest{}
+
+class UserMapperTest{}
+
+class ApplicationStart{}
+
+class ConnectionPool{}
+
+class CompleteOrder{
+    - int idCustomer;
+    - String cupBot;
+    - int cupBotPrice;
+    - String cupTop;
+    - int cupTopPrice;
+    - int amount;
+}
+
+class CreateAccount{}
+
+class OrderMapper{}
+
+interface IUserMapper{}
+
+class UserMapper{}
+
+class AddOrder{}
+
+class CakeTop{}
+
+class CakeBot{}
+
+class Logout{}
+
+class Order{}
+
+class Login{}
+
+class User{}
+
+class Pay{}
+
+@enduml
